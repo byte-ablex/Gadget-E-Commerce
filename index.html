@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gadget E-Commerce</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+
+        body{
+            background-color:white;
+            font-family: Arial, sans-serif;          
+            display:flex;
+            flex-direction:column;
+        }
+        
+      .green {
+             color: #159B3A;
+      }
+      
+      header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 88px;
+        padding: 10px 30px;
+        background-color: #F1F8ED;
+        
+      }
+
+      .logo{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        width: 450px;
+        flex-shrink: 0;
+      
+      }
+
+      .logo img{
+        width:100px;
+        height:65px;
+        object-fit: contain;
+      }
+
+      .logo h1{
+        font-size: 30px;
+        color: #17212B;
+        
+      } 
+      
+      .logo p{
+        font-size: 18px;
+        margin-top: 2px;
+        color: #333333;
+      }
+
+      nav{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background-color: #F1F8ED;
+      }
+        
+      nav a{
+        color: #17212B;
+        font-size: 17px;
+        font-weight: bold;
+        padding: 14px 23px;
+        text-decoration: none;
+        border-radius: 12px;
+        }
+        
+        nav a.home{
+            background-color: #159B3A;
+            color: white;
+           
+           
+        }
+        nav a:hover{
+            background-color: #159B3A;
+            color: white;
+            
+    
+        }
+
+        .cart{
+            position: relative;
+            display: inline-block;
+            margin-left:auto;
+            color: #17212B;
+            font-size: 30px;
+            line-height: 1;
+            text-decoration: none;
+        }
+
+        .cart small{
+          position: absolute;
+          top: -9px;
+          right: -9px;
+          width: 24px;
+          height: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #159B3A;
+          color: white;
+          border-radius: 50%;
+          font-size: 12px;
+          font-weight: bold;
+        }
+        .cart:hover{
+            color: #159B3A
+        }
+        .cart small:hover{
+            background-color: #106D2A;
+        }
+        .stroke{
+          font-size: 50px;
+          font-weight: normal;
+          color: #17212B;
+          line-height: 1;
+          margin-right: 25px;
+        }
+
+        .banner{
+            width: 100%;
+            padding: 10px 15px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .banner img{
+            width: 100%;
+            height: 300px;
+            object-fit:fill;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .banner-content {
+            position: absolute;
+            left: 60px;
+        }
+
+        .banner-content h1 {
+            color: #17212B;
+            font-size: 35px;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .banner-content .dark{
+            color: darkgreen;
+            font-size: 50px;
+
+        }
+
+        .banner-content h2 {
+            color: #17212B;
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .banner-content button {
+            background-color: #159B3A;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .banner-content button:hover{
+    
+            background-color: #159B3A;
+        }
+
+        .products{
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 30px;
+        }
+
+        .products-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            margin-top: 20px;
+        }
+
+        .products-heading h2 {
+            border-left: 8px solid #159B3A;
+            padding-left: 15px;
+            font-size: 28px;
+        }
+
+        .products-heading button {
+            background-color: #159B3A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .products-heading button:hover {
+            background-color: #106D2A;
+        }
+        .product{
+            width: 20%;
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        .product img{
+            width: 100%;
+            height: 210px;
+            object-fit: contain;          
+            margin-bottom: 15px;
+        }
+      
+        .product h3{
+            font-size: 16px;
+            color: #17212B;
+            margin-bottom: 12px;
+        }
+        .product p{
+            margin-bottom: 15px;
+        }
+        
+        .product button{
+            background-color: #159B3A;
+            color: white;
+            border: 1px solid #159B3A;
+            border-radius: 5px;
+            font-size: 14px;        
+            padding: 8px 14px;
+            cursor: pointer;
+        }
+        
+        .product:hover{
+            border-color: #159B3A;
+        }
+        
+        .product button:hover{
+            background-color: white;
+            color:#159B3A
+        }
+        
+        .price{
+        color:#159B3A;
+        font-weight: bold;
+        }
+
+        del{
+        color: #888888;
+        }
+
+        footer{
+        color: white;
+        }
+   
+        .gadget{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #111820;
+            padding: 20px 25px;
+        }
+
+        .footer{
+         
+            padding: 0 20px;
+            height: 70px;
+        }   
+        
+
+        .footer-logo{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 30%;
+            height: 70px;
+            padding: 0 20px;
+            border-right: 1px solid white;
+        }
+
+        .footer-logo h2{
+            font-size: 20px;
+        
+           
+        }
+
+        .footer-logo p{
+            font-size: 15px;
+        }    
+        
+        .footer-links{
+            width: 24%;
+            border-right: 1px solid white;
+            white-space: nowrap;
+            
+        }
+      
+        .footer-contact{
+            width: 24%;
+            border-right: 1px solid white;
+        }
+
+        .footer-social{
+            width: 22%;
+        }
+
+        .footer-logo img{
+            width: 85px;
+            height: 80px;
+            object-fit: contain;
+           
+        }
+      
+        .footer h3{
+            color: #22c55e;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .footer p{
+            margin: 10px 0;
+        }
+
+        .footer a{
+            color: white;
+            text-decoration: none;
+            margin-right: 12px;
+        }
+
+        .footer p a:hover{
+            color: #35D45B
+        }
+
+        .footer i{
+            font-size: 18px;
+        }
+
+        .footer .fa-phone,
+        .footer .fa-envelope {
+            color:#159B3A;
+        }
+
+        .last{
+            border-right: none;
+        }
+
+        .social a{
+            margin-right: 15px;
+            
+            
+        }
+
+        .facebook:hover {
+            color: blue;
+        } 
+
+        .twitter:hover {
+            color: skyblue;
+        }
+
+        .youtube:hover {
+            color: red;
+        }
+
+        .linkedin:hover {
+            color: lightblue;
+        }
+
+        .copyrights{
+            background-color: #159B3A;
+            text-align: center;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="cart logo.png" alt="Shopping cart logo">
+        <div>
+        <h1>Gadget <span class="green">E-Commerce</span></h1>
+        <p><i>Smart Gadgets, Better Life</i></p>
+        </div>
+        </div>
+        <span class="stroke">|</span>
+    
+        <nav>
+            <a href="#" class="home">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="#">SERVICE</a>
+            <a href="#">LOGIN</a>
+           </nav>
+           
+            <a href="#" class="cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <small>0</small>
+            </a>
+        </header>
+
+        <section class="banner">
+    <img src="banner.png" alt="Gadgets banner">
+
+    <div class="banner-content">
+        <h1>Discover the Latest</h1>
+        <h1 class="dark">Gadgets Online!</h1>
+        <h2><i>Shop Smart, Live Better.</i></h2>
+        <button>Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+          
+        </section>
+
+        <div class="products-heading">
+        <h2>Our Selling Products</h2>
+
+        <button>View All Products 
+            <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <section class="products">
+        <div class="product">
+            <img src="laptop.png" alt="HP Laptop">
+            <h3>HP Laptop 15.6"</h3>
+            <p>
+                <span class="price">$750</span> 
+                <del>$850</del>
+            </p>
+            <button><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="phone.png" alt="Samsung Galaxy A55">
+            <h3>Samsung Galaxy A55</h3>
+            <p>
+                <span class="price">$450</span>
+                <del>$500</del>
+            </p>
+            <button><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="Airpods.png" alt="AirPods Pro">
+            <h3>AirPods Pro</h3>
+            <p>
+                <span class="price">$250</span>
+                <del>$300</del>
+            </p>
+            <button><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="watch.png" alt="Smart Watch S9">
+            <h3>Smart Watch S9</h3>
+            <p>
+                <span class="price">$120</span> 
+                <del>$150</del>
+            </p>
+            <button><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="headphones.png" alt="Bluetooth Headphones">
+            <h3>Bluetooth Headphones</h3>
+            <p>
+                <span class="price">$90</span> 
+                <del>$120</del>
+            </p>
+            <button><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="gadget">
+        <section class="footer-logo">
+
+        <img src="cart logo.png" alt="Shopping cart logo">
+        <div>
+        <h2>Gadget <span class="green">E-Commerce</span></h2>
+        <p><i>Smart Gadgets, Better Life</i></p>
+        </div>
+        </section>
+
+        <section class=" footer footer-links">
+        <h3>Quick Links</h3>
+        <p>
+        <a href="#">Home</a> |
+        <a href="#">About</a> |
+        <a href="#">Service</a> |      
+        <a href="#">Login</a> 
+        </p>
+        </section>
+
+        <section class="footer footer-contact">
+        <h3>Contact Us</h3>
+        <p><i class="fa-solid fa-phone"></i>
+            +250 788 123 456</p>
+        <p><i class="fa-solid fa-envelope"></i>
+            info@gadgetecom.rw</p>
+        </section>
+
+        <section class="footer footer-social">
+        <h3>Follow Us</h3>
+
+        <div class="social">
+       <a href="#" class="facebook"><i class="fa-brands fa-facebook"></i></a>
+       <a href="#" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+       <a href="#" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+       <a href="#" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+         </div>
+         </section>
+         </div>
+
+        <div class="copyrights">
+        <p>© 2026 Gadget E-Commerce. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
